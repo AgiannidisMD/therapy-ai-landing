@@ -17,8 +17,8 @@ This is the optimal model for healthcare SaaS because:
 
 ### Standard Plan
 ```
-€49/user/month (billed monthly)
-€39/user/month (billed annually - 20% discount)
+€80/user/month (billed monthly)
+€64/user/month (billed annually - 20% discount)
 
 Includes:
 ✓ Unlimited sessions per user
@@ -35,8 +35,8 @@ Ideal for: Solo practitioners & small practices (1-10 users)
 
 ### Enterprise Plan
 ```
-Custom pricing (starts at €299/month for 10 users)
-= €29.90/user/month for larger teams
+Custom pricing (starts at €480/month for 10 users)
+= €48/user/month for larger teams
 
 Includes everything in Standard, plus:
 ✓ Custom note templates
@@ -53,8 +53,8 @@ Includes everything in Standard, plus:
 
 Ideal for: Clinics, hospitals, large practices (10+ users)
 Pricing tiers:
-- 10-25 users: €29.90/user/month
-- 26-50 users: €24.90/user/month
+- 10-25 users: €48/user/month
+- 26-50 users: €40/user/month
 - 51+ users: Custom pricing
 ```
 
@@ -96,16 +96,18 @@ Benefits:
 
 ### 1. Market Positioning
 **Competitors:**
-- Theranest: $39-149/month (session limits)
-- SimplePractice: $29-79/user/month
+- PlaynVoice (Switzerland): ~€103/user/month (100 CHF)
 - TherapyNotes: $49-99/user/month
-- **MedScribe: €49/user/month (unlimited)**
+- SimplePractice: $29-79/user/month
+- Theranest: $39-149/month (session limits)
+- **MedScribe: €80/user/month (unlimited)**
 
-**Sweet spot:** Premium pricing justified by:
+**Sweet spot:** Premium pricing at 22% below Swiss competitor:
 - AI automation (saves 5+ hours/week)
-- Greek language specialization
+- Greek language specialization (unique in market)
 - Better UX than competitors
 - GDPR compliance built-in
+- €23/month savings vs PlaynVoice
 
 ### 2. Value Proposition
 **Customer ROI:**
@@ -114,15 +116,16 @@ Therapist hourly rate: €80/hour
 Time saved per week: 5 hours
 Monthly time savings value: €1,600
 
-MedScribe cost: €49/month
-ROI: 32.6x
+MedScribe cost: €80/month
+ROI: 20x
 ```
 
-**Easy sell:** "Spend €49 to save €1,600 worth of time"
+**Easy sell:** "Spend €80 to save €1,600 worth of time—and pay €23 less than PlaynVoice"
 
 ### 3. Psychological Pricing
-- **€49 vs €50** - Under €50 threshold feels cheaper
-- **€39 annual** - 20% discount creates urgency
+- **€80** - Round number signals confidence and quality
+- **€64 annual** - 20% discount creates urgency
+- **22% below PlaynVoice** - Clear competitive advantage
 - **Unlimited** - No mental accounting, no regret
 - **Per-user** - Fair and scalable
 
@@ -408,38 +411,30 @@ Infrastructure:
 - Total infra: €0.80/user/month
 
 Total cost per user: €40.80/month
-Revenue per user: €49/month
-Gross margin: €8.20/user/month (16.7%)
+Revenue per user: €80/month
+Gross margin: €39.20/user/month (49%)
 ```
 
-**Key insight:** Margin is thin at standard plan because AI costs are high. Enterprise plan with higher pricing is crucial for profitability.
+**Key insight:** At €80/month, MedScribe achieves healthy 49% gross margins while remaining 22% cheaper than PlaynVoice (€103/month). This provides sustainable unit economics for growth.
 
-### Improved Margin Strategy
+### Margin Comparison
 
-**Option A: Increase base price**
 ```
-€59/user/month
-Gross margin: €18.20/user (30.8%)
-Better, but may reduce conversions
-```
+€49 pricing: €8.20 margin (16.7%) ❌ Unsustainable
+€59 pricing: €18.20 margin (31%) ⚠️ Tight
+€80 pricing: €39.20 margin (49%) ✓ Healthy
+€103 (PlaynVoice): €62.20 margin (60%) ✓ Premium
 
-**Option B: Annual-only pricing**
-```
-€49/month if annual (€588/year prepaid)
-€59/month if monthly
-Encourages annual (better cash flow + retention)
-Maintains €49 price point for marketing
+Sweet spot: €80 balances competitive pricing with sustainable margins
 ```
 
-**Option C: Optimize AI costs**
-```
-Use Whisper API + Claude API directly
-Negotiate volume pricing at scale
-Build custom fine-tuned model (Year 2)
-Target cost reduction: 30-40%
-```
+### Growth Strategy
 
-**Recommendation:** Implement Option B (annual discount strategy) + Option C (optimize costs as you scale)
+**Revenue Optimization:**
+- Standard Plan (€80): Healthy margins for acquisition
+- Annual discount (€64): Improved cash flow and retention
+- Enterprise volume pricing: Scale economics
+- AI cost optimization (Year 2): Improve margins to 55%+
 
 ---
 
@@ -448,31 +443,33 @@ Target cost reduction: 30-40%
 ### Phase 1: Launch (Months 1-3)
 ```
 First 50 customers: 3 months free
-Standard: €49/user/month (unlimited)
-Enterprise: €299/month (10 users minimum)
+Standard: €80/user/month (unlimited)
+Enterprise: €480/month (10 users minimum)
 
 Goal: Get to 50 customers ASAP
 Tactic: Aggressive marketing, founder-led sales
+Message: "22% cheaper than PlaynVoice with Greek support"
 ```
 
 ### Phase 2: Post-Launch (Months 4-12)
 ```
 New customers: 14-day free trial
-Standard: €49/user/month
-Enterprise: Custom quotes (€29-39/user for 10+)
+Standard: €80/user/month (€64 annual)
+Enterprise: Custom quotes (€48-40/user for 10+)
 
 Goal: Reach 100 paying customers
 Tactic: Inbound marketing, referral program (€200 credit)
+Message: "Swiss quality at Mediterranean prices"
 ```
 
 ### Phase 3: Scale (Year 2)
 ```
-Standard: €59/user/month (price increase)
+Standard: €89-99/user/month (price increase)
 Enterprise: Volume-based pricing
 Add-ons: Premium AI features
 
-Goal: Reach 300 customers, improve margins
-Tactic: Grandfather existing customers at old pricing
+Goal: Reach 300 customers, improve margins to 55%+
+Tactic: Grandfather existing customers at €80 pricing
 ```
 
 ---
@@ -484,12 +481,13 @@ Tactic: Grandfather existing customers at old pricing
 ```
 ┌─────────────────────────────────────────┐
 │            STANDARD PLAN                │
-│         €49/user/month                  │
-│    (€39/user/month if annual)          │
+│         €80/user/month                  │
+│    (€64/user/month if annual)          │
 │                                         │
 │  ✓ Unlimited sessions                  │
 │  ✓ All core features                   │
 │  ✓ Email support                       │
+│  ✓ Greek + English support             │
 │                                         │
 │  [Start 14-day free trial]             │
 │  No credit card required               │
@@ -498,7 +496,7 @@ Tactic: Grandfather existing customers at old pricing
 ┌─────────────────────────────────────────┐
 │           ENTERPRISE PLAN               │
 │          Custom pricing                 │
-│  (starts at €299/month for 10 users)   │
+│  (starts at €480/month for 10 users)   │
 │                                         │
 │  ✓ Everything in Standard              │
 │  ✓ API access & SSO                    │
@@ -517,6 +515,8 @@ Tactic: Grandfather existing customers at old pricing
 - ✅ Annual discount (20% off)
 - ✅ Volume discounts (Enterprise)
 - ✅ 14-day free trial (no CC)
-- ✅ Premium positioning (€49, not €39)
+- ✅ Premium positioning (€80 vs PlaynVoice €103)
+- ✅ 22% cheaper than Swiss competitor
+- ✅ 49% gross margins (sustainable growth)
 
 **This is your pricing model. Ship it.**

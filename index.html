@@ -18,6 +18,14 @@
     <!-- Icons: Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Swiper for Carousels -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -87,6 +95,36 @@
             0% { transform: scaleY(0.7); opacity: 0.5; }
             100% { transform: scaleY(1); opacity: 0.9; }
         }
+
+        /* GSAP Animation Classes */
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .animate-scale-up {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        /* Gradient overlays */
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.05) 0%, rgba(8, 145, 178, 0.08) 100%);
+        }
+
+        /* Enhanced card hover */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Swiper customization */
+        .swiper-pagination-bullet {
+            background: #0891B2 !important;
+        }
     </style>
 </head>
 <body class="bg-white text-navy-900 antialiased">
@@ -111,12 +149,16 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-b from-navy-50 to-white">
-        <div class="max-w-7xl mx-auto px-6">
+    <section class="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-b from-navy-50 to-white overflow-hidden">
+        <!-- Gradient Background Circles -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-teal/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-navy-900/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
 
                 <!-- Left Content -->
-                <div class="flex flex-col">
+                <div class="flex flex-col animate-fade-up">
                     <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-light border border-teal/20 text-teal-dark text-xs font-semibold uppercase tracking-wide mb-6 w-fit">
                         <i class="ph-fill ph-shield-check"></i>
                         <span>HIPAA & GDPR Compliant</span>
@@ -227,22 +269,56 @@
         </div>
     </section>
 
-    <!-- Social Proof Section -->
-    <section class="py-12 bg-navy-900 text-white">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-xs font-semibold text-navy-400 uppercase tracking-wider mb-6">Trusted by leading healthcare institutions</p>
-            <div class="flex flex-wrap justify-center items-center gap-12 opacity-70">
-                <div class="flex items-center gap-2 text-lg font-semibold">
-                    <i class="ph-fill ph-hospital text-2xl"></i>
-                    MAYO CLINIC TECHNOLOGY
+    <!-- Client Logos Carousel Section -->
+    <section class="py-16 bg-navy-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-xs font-semibold text-navy-400 uppercase tracking-wider mb-8 text-center">Trusted by leading Greek healthcare institutions</p>
+
+            <!-- Swiper Logo Carousel -->
+            <div class="swiper logoSwiper mb-8">
+                <div class="swiper-wrapper items-center">
+                    <div class="swiper-slide !flex items-center justify-center">
+                        <div class="flex items-center gap-3 text-lg font-semibold opacity-70 hover:opacity-100 transition-opacity">
+                            <i class="ph-fill ph-hospital text-3xl text-teal"></i>
+                            <span>ATTIKON HOSPITAL</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !flex items-center justify-center">
+                        <div class="flex items-center gap-3 text-lg font-semibold opacity-70 hover:opacity-100 transition-opacity">
+                            <i class="ph-fill ph-cross text-3xl text-teal"></i>
+                            <span>HYGEIA CLINIC</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !flex items-center justify-center">
+                        <div class="flex items-center gap-3 text-lg font-semibold opacity-70 hover:opacity-100 transition-opacity">
+                            <i class="ph-fill ph-activity text-3xl text-teal"></i>
+                            <span>METROPOLITAN</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !flex items-center justify-center">
+                        <div class="flex items-center gap-3 text-lg font-semibold opacity-70 hover:opacity-100 transition-opacity">
+                            <i class="ph-fill ph-heartbeat text-3xl text-teal"></i>
+                            <span>IASO HOSPITAL</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !flex items-center justify-center">
+                        <div class="flex items-center gap-3 text-lg font-semibold opacity-70 hover:opacity-100 transition-opacity">
+                            <i class="ph-fill ph-first-aid text-3xl text-teal"></i>
+                            <span>EUROCLINIC</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !flex items-center justify-center">
+                        <div class="flex items-center gap-3 text-lg font-semibold opacity-70 hover:opacity-100 transition-opacity">
+                            <i class="ph-fill ph-pulse text-3xl text-teal"></i>
+                            <span>MITERA HOSPITAL</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="h-6 w-px bg-navy-700"></div>
-                <div class="flex items-center gap-2 text-lg font-semibold">
-                    <i class="ph-fill ph-cross text-2xl"></i>
-                    JOHNS HOPKINS AI
-                </div>
-                <div class="h-6 w-px bg-navy-700"></div>
-                <div class="text-sm bg-navy-800 px-4 py-2 rounded font-medium">
+            </div>
+
+            <div class="text-center">
+                <div class="inline-block text-sm bg-navy-800 px-6 py-3 rounded-lg font-medium border border-navy-700">
+                    <i class="ph-fill ph-check-circle text-teal mr-2"></i>
                     Για Έλληνες επαγγελματίες ψυχικής υγείας
                 </div>
             </div>
@@ -260,7 +336,7 @@
             <div class="grid md:grid-cols-3 gap-8">
 
                 <!-- Step 1 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6 hover:shadow-card transition-shadow">
+                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
                     <div class="w-12 h-12 bg-navy-900 rounded flex items-center justify-center mb-4">
                         <i class="ph ph-microphone text-white text-2xl"></i>
                     </div>
@@ -270,7 +346,7 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="bg-navy-900 text-white rounded-lg p-6">
+                <div class="bg-navy-900 text-white rounded-lg p-6 card-hover animate-fade-up">
                     <div class="w-12 h-12 bg-teal rounded flex items-center justify-center mb-4">
                         <i class="ph-fill ph-cpu text-white text-2xl"></i>
                     </div>
@@ -280,7 +356,7 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6 hover:shadow-card transition-shadow">
+                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
                     <div class="w-12 h-12 bg-navy-900 rounded flex items-center justify-center mb-4">
                         <i class="ph ph-check-square text-white text-2xl"></i>
                     </div>
@@ -293,39 +369,90 @@
         </div>
     </section>
 
-    <!-- Testimonials Section - MINIMAL -->
+    <!-- Testimonials Carousel Section -->
     <section class="py-16 bg-navy-50 border-y border-navy-100">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-8">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-navy-900 mb-3">Trusted by mental health professionals</h2>
+                <p class="text-lg text-navy-600">Join hundreds of therapists saving time with AI documentation</p>
+            </div>
 
-                <!-- Testimonial 1 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6">
-                    <p class="text-navy-700 mb-4 leading-relaxed">"Saves me 6 hours every week. I can actually focus on my patients now instead of spending evenings on documentation."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center">
-                            <i class="ph-fill ph-user text-navy-600"></i>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-navy-900 text-sm">Dr. Maria K.</div>
-                            <div class="text-xs text-navy-500">Clinical Psychologist, Athens</div>
+            <!-- Swiper Carousel -->
+            <div class="swiper testimonialSwiper">
+                <div class="swiper-wrapper pb-12">
+
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white border border-navy-100 rounded-lg p-8 h-full card-hover">
+                            <div class="flex items-start gap-1 mb-4">
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                            </div>
+                            <p class="text-navy-700 mb-6 leading-relaxed text-lg">"Saves me 6 hours every week. I can actually focus on my patients now instead of spending evenings on documentation."</p>
+                            <div class="flex items-center gap-3 pt-4 border-t border-navy-100">
+                                <div class="w-12 h-12 rounded-full bg-navy-100 flex items-center justify-center">
+                                    <i class="ph-fill ph-user text-navy-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-navy-900">Dr. Maria K.</div>
+                                    <div class="text-sm text-navy-500">Clinical Psychologist, Athens</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Testimonial 2 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6">
-                    <p class="text-navy-700 mb-4 leading-relaxed">"The Greek transcription accuracy is incredible. Better than typing myself. GDPR compliance gives me complete peace of mind."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center">
-                            <i class="ph-fill ph-user text-navy-600"></i>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-navy-900 text-sm">Dimitris P.</div>
-                            <div class="text-xs text-navy-500">Psychiatrist, Thessaloniki</div>
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white border border-navy-100 rounded-lg p-8 h-full card-hover">
+                            <div class="flex items-start gap-1 mb-4">
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                            </div>
+                            <p class="text-navy-700 mb-6 leading-relaxed text-lg">"The Greek transcription accuracy is incredible. Better than typing myself. GDPR compliance gives me complete peace of mind."</p>
+                            <div class="flex items-center gap-3 pt-4 border-t border-navy-100">
+                                <div class="w-12 h-12 rounded-full bg-navy-100 flex items-center justify-center">
+                                    <i class="ph-fill ph-user text-navy-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-navy-900">Dimitris P.</div>
+                                    <div class="text-sm text-navy-500">Psychiatrist, Thessaloniki</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white border border-navy-100 rounded-lg p-8 h-full card-hover">
+                            <div class="flex items-start gap-1 mb-4">
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                                <i class="ph-fill ph-star text-teal text-xl"></i>
+                            </div>
+                            <p class="text-navy-700 mb-6 leading-relaxed text-lg">"As a private practice owner, this tool has been transformative. My team can see more patients while maintaining quality documentation."</p>
+                            <div class="flex items-center gap-3 pt-4 border-t border-navy-100">
+                                <div class="w-12 h-12 rounded-full bg-navy-100 flex items-center justify-center">
+                                    <i class="ph-fill ph-user text-navy-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-navy-900">Elena S.</div>
+                                    <div class="text-sm text-navy-500">Practice Owner, Patras</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
@@ -342,7 +469,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 <!-- Benefit 1 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6">
+                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
                     <div class="w-10 h-10 bg-navy-100 rounded flex items-center justify-center mb-4">
                         <i class="ph ph-translate text-navy-900 text-xl"></i>
                     </div>
@@ -354,7 +481,7 @@
                 </div>
 
                 <!-- Benefit 2 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6">
+                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
                     <div class="w-10 h-10 bg-navy-100 rounded flex items-center justify-center mb-4">
                         <i class="ph ph-shield-check text-navy-900 text-xl"></i>
                     </div>
@@ -366,7 +493,7 @@
                 </div>
 
                 <!-- Benefit 3 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6">
+                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
                     <div class="w-10 h-10 bg-navy-100 rounded flex items-center justify-center mb-4">
                         <i class="ph ph-chart-line text-navy-900 text-xl"></i>
                     </div>
@@ -412,7 +539,7 @@
             <div class="grid md:grid-cols-3 gap-6">
 
                 <!-- Starter -->
-                <div class="border border-navy-200 rounded-lg p-6 bg-white">
+                <div class="border border-navy-200 rounded-lg p-6 bg-white card-hover animate-fade-up">
                     <div class="text-sm font-semibold text-navy-600 mb-2">STARTER</div>
                     <div class="mb-4">
                         <span class="text-4xl font-bold text-navy-900">€39</span>
@@ -443,7 +570,7 @@
                 </div>
 
                 <!-- Professional (Popular) -->
-                <div class="border-2 border-teal rounded-lg p-6 bg-white relative">
+                <div class="border-2 border-teal rounded-lg p-6 bg-white relative card-hover animate-fade-up">
                     <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal text-white text-xs font-bold px-3 py-1 rounded-full">
                         POPULAR
                     </div>
@@ -477,7 +604,7 @@
                 </div>
 
                 <!-- Clinic -->
-                <div class="border border-navy-200 rounded-lg p-6 bg-white">
+                <div class="border border-navy-200 rounded-lg p-6 bg-white card-hover animate-fade-up">
                     <div class="text-sm font-semibold text-navy-600 mb-2">CLINIC</div>
                     <div class="mb-4">
                         <span class="text-4xl font-bold text-navy-900">€149</span>
@@ -644,28 +771,199 @@
         </div>
     </footer>
 
-    <!-- Form handling script -->
+    <!-- Enhanced JavaScript -->
     <script>
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const btn = form.querySelector('button[type="submit"]') || form.querySelector('button[type="button"]');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="ph-line ph-spinner animate-spin"></i>';
-                btn.disabled = true;
+        // Wait for DOM and libraries to load
+        document.addEventListener('DOMContentLoaded', () => {
 
-                setTimeout(() => {
-                    btn.innerHTML = '<i class="ph-fill ph-check-circle mr-2"></i>Success!';
-                    btn.classList.add('!bg-teal');
-                    form.querySelector('input').value = '';
+            // ============================================
+            // GSAP ScrollTrigger Animations
+            // ============================================
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Animate fade-up elements
+            gsap.utils.toArray('.animate-fade-up').forEach((element, index) => {
+                gsap.fromTo(element,
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        delay: index * 0.1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none'
+                        }
+                    }
+                );
+            });
+
+            // Animate scale-up elements
+            gsap.utils.toArray('.animate-scale-up').forEach((element) => {
+                gsap.fromTo(element,
+                    { opacity: 0, scale: 0.95 },
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.6,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none'
+                        }
+                    }
+                );
+            });
+
+            // Animate hero section gradient circles
+            gsap.to('.bg-teal\\/5', {
+                scale: 1.2,
+                rotation: 45,
+                duration: 20,
+                ease: 'none',
+                repeat: -1,
+                yoyo: true
+            });
+
+            gsap.to('.bg-navy-900\\/5', {
+                scale: 1.3,
+                rotation: -30,
+                duration: 25,
+                ease: 'none',
+                repeat: -1,
+                yoyo: true
+            });
+
+            // ============================================
+            // Swiper Carousels
+            // ============================================
+
+            // Testimonial Carousel
+            new Swiper('.testimonialSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                }
+            });
+
+            // Logo Carousel - Continuous scroll
+            new Swiper('.logoSwiper', {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false
+                },
+                speed: 3000,
+                freeMode: true,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 3,
+                        spaceBetween: 40
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 60
+                    },
+                    1280: {
+                        slidesPerView: 5,
+                        spaceBetween: 80
+                    }
+                }
+            });
+
+            // ============================================
+            // Smooth Scroll Navigation
+            // ============================================
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // ============================================
+            // Form Handling
+            // ============================================
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const btn = form.querySelector('button[type="submit"]') || form.querySelector('button[type="button"]');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="ph-line ph-spinner animate-spin"></i>';
+                    btn.disabled = true;
 
                     setTimeout(() => {
-                        btn.innerHTML = originalText;
-                        btn.disabled = false;
-                        btn.classList.remove('!bg-teal');
-                    }, 3000);
-                }, 1500);
+                        btn.innerHTML = '<i class="ph-fill ph-check-circle mr-2"></i>Success!';
+                        btn.classList.add('!bg-teal');
+                        const input = form.querySelector('input');
+                        if (input) input.value = '';
+
+                        setTimeout(() => {
+                            btn.innerHTML = originalText;
+                            btn.disabled = false;
+                            btn.classList.remove('!bg-teal');
+                        }, 3000);
+                    }, 1500);
+                });
             });
+
+            // ============================================
+            // Enhanced Audio Waveform Animation
+            // ============================================
+            const audioBars = document.querySelectorAll('.audio-bar');
+            audioBars.forEach((bar, index) => {
+                gsap.to(bar, {
+                    scaleY: 'random(0.7, 1.2)',
+                    opacity: 'random(0.5, 1)',
+                    duration: 'random(0.8, 1.5)',
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut',
+                    delay: index * 0.1
+                });
+            });
+
+            // ============================================
+            // Navbar Background on Scroll
+            // ============================================
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-lg');
+                } else {
+                    nav.classList.remove('shadow-lg');
+                }
+            });
+
         });
     </script>
 </body>

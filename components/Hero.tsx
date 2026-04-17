@@ -4,13 +4,13 @@ export default function Hero() {
   return (
     <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-b from-navy-50 to-white overflow-hidden">
       {/* Gradient Background Circles */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-navy-900/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-teal/5 rounded-full blur-3xl hero-circle-1"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-navy-900/5 rounded-full blur-3xl hero-circle-2"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="flex flex-col animate-fade-up">
+          <div className="flex flex-col animate-slide-left">
             <div className="badge-premium inline-flex items-center gap-2 px-4 py-2 rounded-full text-teal-700 text-xs font-bold uppercase tracking-wider mb-6 w-fit">
               <i className="ph-fill ph-shield-check text-sm"></i>
               <span>HIPAA & GDPR Compliant</span>
@@ -74,7 +74,7 @@ export default function Hero() {
           </div>
 
           {/* Right Visual: Enterprise Dashboard Mockup */}
-          <div className="relative animate-scale-up">
+          <div className="relative animate-slide-right">
             <div className="glass-card rounded-2xl shadow-premium p-6 overflow-hidden backdrop-blur-xl">
               {/* Header */}
               <div className="flex justify-between items-center pb-4 border-b border-navy-100">

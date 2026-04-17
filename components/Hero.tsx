@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="flex flex-col animate-slide-left">
+          <div className="flex flex-col">
             <div className="badge-premium inline-flex items-center gap-2 px-4 py-2 rounded-full text-teal-700 text-xs font-bold uppercase tracking-wider mb-6 w-fit">
               <i className="ph-fill ph-shield-check text-sm"></i>
               <span>HIPAA & GDPR Compliant</span>
@@ -74,7 +74,7 @@ export default function Hero() {
           </div>
 
           {/* Right Visual: Enterprise Dashboard Mockup */}
-          <div className="relative animate-slide-right">
+          <div className="relative">
             <div className="glass-card rounded-2xl shadow-premium p-6 overflow-hidden backdrop-blur-xl">
               {/* Header */}
               <div className="flex justify-between items-center pb-4 border-b border-navy-100">

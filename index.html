@@ -51,7 +51,14 @@
                         },
                         // Professional Teal (Accent)
                         teal: {
+                            50: '#F0FDFA',
+                            100: '#CCFBF1',
+                            200: '#99F6E4',
+                            300: '#5EEAD4',
+                            400: '#2DD4BF',
                             DEFAULT: '#0891B2',
+                            600: '#0E7490',
+                            700: '#0F5F7A',
                             light: '#E0F2FE',
                             dark: '#0E7490',
                         },
@@ -59,6 +66,33 @@
                     boxShadow: {
                         'enterprise': '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
                         'card': '0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05)',
+                        'card-hover': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+                        'premium': '0 8px 16px -4px rgba(8, 145, 178, 0.1), 0 4px 8px -2px rgba(15, 23, 42, 0.08)',
+                        'premium-hover': '0 20px 40px -8px rgba(8, 145, 178, 0.15), 0 8px 16px -4px rgba(15, 23, 42, 0.1)',
+                        'inner-premium': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)',
+                    },
+                    fontSize: {
+                        'xs': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
+                        'sm': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.01em' }],
+                        'base': ['1rem', { lineHeight: '1.5rem', letterSpacing: '0' }],
+                        'lg': ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '-0.01em' }],
+                        'xl': ['1.25rem', { lineHeight: '1.75rem', letterSpacing: '-0.01em' }],
+                        '2xl': ['1.5rem', { lineHeight: '2rem', letterSpacing: '-0.02em' }],
+                        '3xl': ['1.875rem', { lineHeight: '2.25rem', letterSpacing: '-0.02em' }],
+                        '4xl': ['2.25rem', { lineHeight: '2.5rem', letterSpacing: '-0.02em' }],
+                        '5xl': ['3rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+                        '6xl': ['3.75rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+                        '7xl': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem',
+                        '128': '32rem',
+                    },
+                    borderRadius: {
+                        'xl': '0.75rem',
+                        '2xl': '1rem',
+                        '3xl': '1.5rem',
                     },
                 }
             }
@@ -112,18 +146,113 @@
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.05) 0%, rgba(8, 145, 178, 0.08) 100%);
         }
 
-        /* Enhanced card hover */
+        /* Enterprise Card Components */
         .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(226, 232, 240, 1);
         }
         .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -8px rgba(8, 145, 178, 0.15), 0 8px 16px -4px rgba(15, 23, 42, 0.1);
+            border-color: rgba(8, 145, 178, 0.3);
+        }
+
+        /* Premium Input Styles */
+        .input-premium {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1.5px solid #E2E8F0;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        .input-premium:focus {
+            border-color: #0891B2;
+            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            outline: none;
+        }
+        .input-premium:hover:not(:focus) {
+            border-color: #CBD5E1;
+        }
+
+        /* Enterprise Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #0891B2 0%, #0E7490 100%);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0E7490 0%, #0F5F7A 100%);
+            box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 1.5px solid #E2E8F0;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-secondary:hover {
+            border-color: #0891B2;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-1px);
+        }
+
+        /* Premium Badge */
+        .badge-premium {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(14, 116, 144, 0.1) 100%);
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Enterprise Stats */
+        .stat-card {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 1) 0%, rgba(241, 245, 249, 1) 100%);
+            border: 1px solid rgba(226, 232, 240, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .stat-card:hover {
+            background: white;
+            box-shadow: 0 8px 16px -4px rgba(8, 145, 178, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Glass morphism effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            background: linear-gradient(90deg, #0891B2 0%, #2DD4BF 100%);
+            box-shadow: 0 2px 8px 0 rgba(8, 145, 178, 0.3);
         }
 
         /* Swiper customization */
         .swiper-pagination-bullet {
             background: #0891B2 !important;
+            opacity: 0.3 !important;
+            transition: all 0.3s !important;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1 !important;
+            width: 24px !important;
+            border-radius: 4px !important;
+        }
+
+        /* Skeleton loading (for future use) */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        .skeleton {
+            background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%);
+            background-size: 2000px 100%;
+            animation: shimmer 2s infinite linear;
         }
     </style>
 </head>
@@ -141,8 +270,10 @@
             <div class="hidden md:flex items-center gap-6">
                 <a href="#how-it-works" class="text-sm font-medium text-navy-600 hover:text-navy-900 transition-colors">Λειτουργία</a>
                 <a href="#benefits" class="text-sm font-medium text-navy-600 hover:text-navy-900 transition-colors">Οφέλη</a>
-                <a href="#cta" class="text-sm font-semibold bg-navy-900 text-white px-4 py-2 rounded hover:bg-navy-800 transition-colors">
-                    Κλείστε Demo
+                <a href="#pricing" class="text-sm font-medium text-navy-600 hover:text-navy-900 transition-colors">Τιμές</a>
+                <a href="#cta" class="btn-primary text-sm font-semibold text-white px-5 py-2.5 rounded-lg inline-flex items-center gap-2">
+                    <span>Κλείστε Demo</span>
+                    <i class="ph-bold ph-arrow-right text-xs"></i>
                 </a>
             </div>
         </div>
@@ -159,8 +290,8 @@
 
                 <!-- Left Content -->
                 <div class="flex flex-col animate-fade-up">
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-light border border-teal/20 text-teal-dark text-xs font-semibold uppercase tracking-wide mb-6 w-fit">
-                        <i class="ph-fill ph-shield-check"></i>
+                    <div class="badge-premium inline-flex items-center gap-2 px-4 py-2 rounded-full text-teal-700 text-xs font-bold uppercase tracking-wider mb-6 w-fit">
+                        <i class="ph-fill ph-shield-check text-sm"></i>
                         <span>HIPAA & GDPR Compliant</span>
                     </div>
 
@@ -184,12 +315,13 @@
                                 type="email"
                                 placeholder="Εισάγετε το email σας"
                                 required
-                                class="w-full px-4 py-3 border border-navy-200 rounded focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-navy-900 placeholder:text-navy-400"
+                                class="input-premium w-full px-4 py-3.5 rounded-xl text-navy-900 placeholder:text-navy-400 font-medium"
                                 aria-label="Email address"
                             >
                         </div>
-                        <button type="button" class="bg-navy-900 text-white px-6 py-3 rounded font-semibold hover:bg-navy-800 transition-colors whitespace-nowrap">
-                            Δωρεάν Πρόσβαση 3 Μηνών
+                        <button type="button" class="btn-primary text-white px-7 py-3.5 rounded-xl font-semibold whitespace-nowrap flex items-center gap-2">
+                            <span>Δωρεάν Πρόσβαση</span>
+                            <i class="ph-bold ph-arrow-right"></i>
                         </button>
                     </form>
                     <p class="text-xs text-navy-500 mt-3 flex items-center gap-1.5">
@@ -214,8 +346,8 @@
                 </div>
 
                 <!-- Right Visual: Enterprise Dashboard Mockup -->
-                <div class="relative">
-                    <div class="bg-white rounded-lg shadow-2xl border border-navy-100 p-6 overflow-hidden">
+                <div class="relative animate-scale-up">
+                    <div class="glass-card rounded-2xl shadow-premium p-6 overflow-hidden backdrop-blur-xl">
 
                         <!-- Header -->
                         <div class="flex justify-between items-center pb-4 border-b border-navy-100">
@@ -336,31 +468,31 @@
             <div class="grid md:grid-cols-3 gap-8">
 
                 <!-- Step 1 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
-                    <div class="w-12 h-12 bg-navy-900 rounded flex items-center justify-center mb-4">
-                        <i class="ph ph-microphone text-white text-2xl"></i>
+                <div class="bg-white border border-navy-100 rounded-2xl p-8 card-hover animate-fade-up">
+                    <div class="w-14 h-14 bg-gradient-to-br from-navy-900 to-navy-800 rounded-xl flex items-center justify-center mb-5 shadow-lg">
+                        <i class="ph-bold ph-microphone text-white text-2xl"></i>
                     </div>
-                    <div class="text-sm font-semibold text-teal mb-2">STEP 1</div>
+                    <div class="text-xs font-bold text-teal mb-3 tracking-wider">STEP 1</div>
                     <h3 class="text-lg font-bold text-navy-900 mb-3">Καταγράψτε τη συνεδρία</h3>
                     <p class="text-navy-600 text-sm leading-relaxed">Secure ambient recording during your therapy session. HIPAA-compliant encryption from capture to storage.</p>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="bg-navy-900 text-white rounded-lg p-6 card-hover animate-fade-up">
-                    <div class="w-12 h-12 bg-teal rounded flex items-center justify-center mb-4">
-                        <i class="ph-fill ph-cpu text-white text-2xl"></i>
+                <div class="bg-gradient-to-br from-navy-900 to-navy-800 text-white rounded-2xl p-8 card-hover animate-fade-up shadow-premium">
+                    <div class="w-14 h-14 bg-gradient-to-br from-teal-400 to-teal-600 rounded-xl flex items-center justify-center mb-5 shadow-lg">
+                        <i class="ph-bold ph-cpu text-white text-2xl"></i>
                     </div>
-                    <div class="text-sm font-semibold text-teal mb-2">STEP 2</div>
+                    <div class="text-xs font-bold text-teal-300 mb-3 tracking-wider">STEP 2</div>
                     <h3 class="text-lg font-bold mb-3">AI μετατρέπει σε τεκμηρίωση</h3>
                     <p class="text-navy-300 text-sm leading-relaxed">Advanced NLP engine generates structured clinical notes (SOAP, DAP) in Greek medical terminology.</p>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
-                    <div class="w-12 h-12 bg-navy-900 rounded flex items-center justify-center mb-4">
-                        <i class="ph ph-check-square text-white text-2xl"></i>
+                <div class="bg-white border border-navy-100 rounded-2xl p-8 card-hover animate-fade-up">
+                    <div class="w-14 h-14 bg-gradient-to-br from-navy-900 to-navy-800 rounded-xl flex items-center justify-center mb-5 shadow-lg">
+                        <i class="ph-bold ph-check-square text-white text-2xl"></i>
                     </div>
-                    <div class="text-sm font-semibold text-teal mb-2">STEP 3</div>
+                    <div class="text-xs font-bold text-teal mb-3 tracking-wider">STEP 3</div>
                     <h3 class="text-lg font-bold text-navy-900 mb-3">Ελέγξτε και αποθηκεύστε</h3>
                     <p class="text-navy-600 text-sm leading-relaxed">Review, edit, and approve AI-generated documentation. Export to any EHR system.</p>
                 </div>
@@ -469,9 +601,9 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 <!-- Benefit 1 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
-                    <div class="w-10 h-10 bg-navy-100 rounded flex items-center justify-center mb-4">
-                        <i class="ph ph-translate text-navy-900 text-xl"></i>
+                <div class="bg-white border border-navy-100 rounded-2xl p-8 card-hover animate-fade-up">
+                    <div class="w-12 h-12 bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="ph-bold ph-translate text-teal text-2xl"></i>
                     </div>
                     <div class="inline-flex items-center gap-2 text-xs font-semibold text-navy-700 mb-3">
                         <img src="https://flagcdn.com/w20/gr.png" alt="Greek Flag" class="w-4"> 100% ΕΛΛΗΝΙΚΑ
@@ -481,9 +613,9 @@
                 </div>
 
                 <!-- Benefit 2 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
-                    <div class="w-10 h-10 bg-navy-100 rounded flex items-center justify-center mb-4">
-                        <i class="ph ph-shield-check text-navy-900 text-xl"></i>
+                <div class="bg-white border border-navy-100 rounded-2xl p-8 card-hover animate-fade-up">
+                    <div class="w-12 h-12 bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="ph-bold ph-shield-check text-teal text-2xl"></i>
                     </div>
                     <div class="inline-flex items-center gap-2 text-xs font-semibold text-navy-700 mb-3">
                         <i class="ph-fill ph-lock-key"></i> GDPR & HIPAA
@@ -493,9 +625,9 @@
                 </div>
 
                 <!-- Benefit 3 -->
-                <div class="bg-white border border-navy-100 rounded-lg p-6 card-hover animate-fade-up">
-                    <div class="w-10 h-10 bg-navy-100 rounded flex items-center justify-center mb-4">
-                        <i class="ph ph-chart-line text-navy-900 text-xl"></i>
+                <div class="bg-white border border-navy-100 rounded-2xl p-8 card-hover animate-fade-up">
+                    <div class="w-12 h-12 bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="ph-bold ph-chart-line text-teal text-2xl"></i>
                     </div>
                     <div class="inline-flex items-center gap-2 text-xs font-semibold text-navy-700 mb-3">
                         <i class="ph-bold ph-clock"></i> ROI CALCULATOR
@@ -508,21 +640,25 @@
 
             <!-- Stats Row -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-12 border-t border-navy-200">
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-navy-900">99.9%</div>
-                    <div class="text-sm text-navy-600 mt-1">Uptime SLA</div>
+                <div class="stat-card text-center p-6 rounded-2xl">
+                    <div class="text-4xl font-bold text-navy-900 mb-2">99.9%</div>
+                    <div class="text-sm font-medium text-navy-600">Uptime SLA</div>
+                    <div class="mt-3 h-1 w-16 mx-auto rounded-full progress-bar"></div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-navy-900">&lt;60s</div>
-                    <div class="text-sm text-navy-600 mt-1">Note generation</div>
+                <div class="stat-card text-center p-6 rounded-2xl">
+                    <div class="text-4xl font-bold text-navy-900 mb-2">&lt;60s</div>
+                    <div class="text-sm font-medium text-navy-600">Note generation</div>
+                    <div class="mt-3 h-1 w-16 mx-auto rounded-full progress-bar"></div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-navy-900">256-bit</div>
-                    <div class="text-sm text-navy-600 mt-1">AES encryption</div>
+                <div class="stat-card text-center p-6 rounded-2xl">
+                    <div class="text-4xl font-bold text-navy-900 mb-2">256-bit</div>
+                    <div class="text-sm font-medium text-navy-600">AES encryption</div>
+                    <div class="mt-3 h-1 w-16 mx-auto rounded-full progress-bar"></div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-navy-900">EU-only</div>
-                    <div class="text-sm text-navy-600 mt-1">Data residency</div>
+                <div class="stat-card text-center p-6 rounded-2xl">
+                    <div class="text-4xl font-bold text-navy-900 mb-2">EU-only</div>
+                    <div class="text-sm font-medium text-navy-600">Data residency</div>
+                    <div class="mt-3 h-1 w-16 mx-auto rounded-full progress-bar"></div>
                 </div>
             </div>
         </div>
@@ -539,7 +675,7 @@
             <div class="grid md:grid-cols-3 gap-6">
 
                 <!-- Starter -->
-                <div class="border border-navy-200 rounded-lg p-6 bg-white card-hover animate-fade-up">
+                <div class="border border-navy-200 rounded-2xl p-8 bg-white card-hover animate-fade-up">
                     <div class="text-sm font-semibold text-navy-600 mb-2">STARTER</div>
                     <div class="mb-4">
                         <span class="text-4xl font-bold text-navy-900">€39</span>
@@ -564,13 +700,13 @@
                             <span class="text-navy-700">Email support</span>
                         </li>
                     </ul>
-                    <a href="#cta" class="block text-center bg-navy-100 text-navy-900 px-4 py-2.5 rounded font-semibold hover:bg-navy-200 transition-colors">
+                    <a href="#cta" class="btn-secondary block text-center text-navy-900 px-4 py-3 rounded-xl font-semibold">
                         Start free trial
                     </a>
                 </div>
 
                 <!-- Professional (Popular) -->
-                <div class="border-2 border-teal rounded-lg p-6 bg-white relative card-hover animate-fade-up">
+                <div class="border-2 border-teal rounded-2xl p-8 bg-white relative card-hover animate-fade-up shadow-premium">
                     <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal text-white text-xs font-bold px-3 py-1 rounded-full">
                         POPULAR
                     </div>
@@ -598,13 +734,13 @@
                             <span class="text-navy-700">Custom templates</span>
                         </li>
                     </ul>
-                    <a href="#cta" class="block text-center bg-navy-900 text-white px-4 py-2.5 rounded font-semibold hover:bg-navy-800 transition-colors">
+                    <a href="#cta" class="btn-primary block text-center text-white px-4 py-3 rounded-xl font-semibold">
                         Start free trial
                     </a>
                 </div>
 
                 <!-- Clinic -->
-                <div class="border border-navy-200 rounded-lg p-6 bg-white card-hover animate-fade-up">
+                <div class="border border-navy-200 rounded-2xl p-8 bg-white card-hover animate-fade-up">
                     <div class="text-sm font-semibold text-navy-600 mb-2">CLINIC</div>
                     <div class="mb-4">
                         <span class="text-4xl font-bold text-navy-900">€149</span>
@@ -629,7 +765,7 @@
                             <span class="text-navy-700">API access</span>
                         </li>
                     </ul>
-                    <a href="#cta" class="block text-center bg-navy-100 text-navy-900 px-4 py-2.5 rounded font-semibold hover:bg-navy-200 transition-colors">
+                    <a href="#cta" class="btn-secondary block text-center text-navy-900 px-4 py-3 rounded-xl font-semibold">
                         Contact sales
                     </a>
                 </div>
@@ -712,9 +848,9 @@
     <!-- CTA Section -->
     <section id="cta" class="py-20 bg-navy-900 text-white">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-teal/20 text-teal text-xs font-semibold uppercase tracking-wide mb-6">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-400/20 border border-teal-400/30 text-teal-300 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
                 <i class="ph-fill ph-lightning"></i>
-                Limited Availability
+                <span>Limited Availability</span>
             </div>
 
             <h2 class="text-4xl md:text-5xl font-bold mb-6">
@@ -724,16 +860,17 @@
                 Join our early-access program. Shape the product with us and get premium access completely free.
             </p>
 
-            <form class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-6">
+            <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto mb-6">
                 <input
                     type="email"
                     placeholder="Η διεύθυνση email σας..."
                     required
-                    class="flex-1 px-4 py-3 bg-navy-800 border border-navy-700 rounded text-white placeholder:text-navy-500 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent"
+                    class="flex-1 px-5 py-4 bg-navy-800/50 border-2 border-navy-700/50 rounded-xl text-white placeholder:text-navy-400 focus:outline-none focus:border-teal focus:bg-navy-800 transition-all backdrop-blur-sm font-medium"
                     aria-label="Email address"
                 >
-                <button type="submit" class="bg-teal text-white px-6 py-3 rounded font-semibold hover:bg-teal-dark transition-colors whitespace-nowrap">
-                    Κράτηση Θέσης
+                <button type="submit" class="bg-gradient-to-r from-teal-400 to-teal-600 text-white px-8 py-4 rounded-xl font-bold hover:from-teal-500 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap flex items-center gap-2">
+                    <span>Κράτηση Θέσης</span>
+                    <i class="ph-bold ph-arrow-right"></i>
                 </button>
             </form>
 

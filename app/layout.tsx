@@ -47,8 +47,71 @@ export default function RootLayout({
           src="https://unpkg.com/@phosphor-icons/web"
           strategy="beforeInteractive"
         />
+
+        {/* Swiper CSS */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+
+        {/* GSAP for Animations */}
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+          strategy="afterInteractive"
+        />
+
+        {/* Swiper JS */}
+        <Script
+          src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+          strategy="afterInteractive"
+        />
+
+        {/* Initialize GSAP Animations */}
+        <Script id="gsap-init" strategy="afterInteractive">
+          {`
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+              gsap.registerPlugin(ScrollTrigger);
+
+              // Fade up animations
+              gsap.utils.toArray('.animate-fade-up').forEach((element) => {
+                gsap.from(element, {
+                  y: 30,
+                  opacity: 0,
+                  duration: 0.6,
+                  ease: 'power2.out',
+                  scrollTrigger: {
+                    trigger: element,
+                    start: 'top 85%',
+                    once: true,
+                  },
+                });
+              });
+
+              // Scale up animations
+              gsap.utils.toArray('.animate-scale-up').forEach((element) => {
+                gsap.from(element, {
+                  scale: 0.95,
+                  opacity: 0,
+                  duration: 0.6,
+                  ease: 'power2.out',
+                  scrollTrigger: {
+                    trigger: element,
+                    start: 'top 85%',
+                    once: true,
+                  },
+                });
+              });
+            }
+          `}
+        </Script>
+      </body>
     </html>
   );
 }
